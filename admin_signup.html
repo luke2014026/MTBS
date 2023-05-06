@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Sign up</title>
+	<style type="text/css">
+		.invalid{
+			border: red 2px solid;
+
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="bg-img"></div>
+ <section class="container">
+  <div class="luke"></div>
+  <fieldset class="admin_form">
+    <legend class="admin_form__title">Admin Sign up</legend>
+    <div class="admin_form__msg"></div>
+     <form action="signup.inc.php" method="post" class="admin_form__body">
+	    <label for="first name" class="admin_form__lbl">First name:</label>
+	    <div class="input_box">	     
+	      <input type="text" id="fname" name="fname" min="2" max="20" class="admin_form__field">
+	    </div>
+	    <label for="last name" class="admin_form__lbl">Last name:</label>
+	    <div class="input_box">	     
+	      <input type="text" id="lname" name="lname" min="2" max="20" class="admin_form__field">
+	    </div>
+	    <label for="email" class="admin_form__lbl">Email:</label>
+	    <div class="input_box">	     
+	      <input type="text" id="email" name="email" class="admin_form__field">
+	    </div>
+	    <label for="password" class="admin_form__lbl">Password:</label>
+	    <div class="input_box">	     
+	      <input type="password" id="password" name="pwd" class="admin_form__field">
+	    </div>
+	    <label for="password" class="admin_form__lbl">Confirm Password:</label>     
+	    <div class="input_box">	     
+	      <input type="password" id="conf_pwd" name="conf_pwd" class="admin_form__field">
+	    </div>
+	    
+	    <input type="submit" name="register" value="Sign up" class="admin_form__btn">
+	 </form>
+	 <span class="admin_form__note">Already have a account. <a href="admin_login.html" class="admin_form__link">Login.</a></span>
+  </fieldset>
+ </section>
+</body>
+</html> 
+<script type="text/javascript" src="js/errors.js"></script>
