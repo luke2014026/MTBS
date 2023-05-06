@@ -2,9 +2,15 @@
 
 <html lang="en" dir="ltr">
   <head>
+  <style>
+  .luke {
+    height: 800px;
+    background: linear-gradient(to bottom, #0066ff 0%, #cc66ff 100%);
+}
+</style>
     <meta charset="UTF-8">
     <title>  Registration Form </title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="css/register.css">
     <script src="js/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -13,30 +19,30 @@
 <body>
 <div class="luke"></div>
   <div class="container">
-    <center><h5>MOVIE TICKET BOOKING SYSTEM</h5></center>
-    <div class="title">Admin Registration</div>
+    <center><a href="./index.html"><img src="img/logo.png" alt="" style="margin-top: 80px; width: 50%;"></a></center>
+    <div class="title">Registration</div>
     <div class="content">
       <form id="form" action="register.php" method="post" enctype="multipart/form-data" onsubmit="return validate();">
         <div class="user-details">
           <div class="input-box">
-            <span class="details">First name</span>
-            <input type="text" id="fname" name="fname" placeholder="Enter your first name">
-            <p id="nameerror"></p>
-          </div>
-		  <div class="input-box">
-            <span class="details">Last name</span>
-            <input type="text" id="lname" name="lname" placeholder="Enter your last name">
-            <p id="nameerror"></p>
-          </div>
-		  <div class="input-box">
-            <span class="details">JOB name</span>
-            <input type="text" id="lname" name="name" placeholder="Enter your last name">
+            <span class="details">UserName</span>
+            <input type="text" id="username" name="username" placeholder="Enter your name">
             <p id="nameerror"></p>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
             <input type="text" id="email" name="email" placeholder="Enter your Email">
             <p id="emailerror"></p>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="number" id="number" name="number" placeholder="Enter your Phone Number">
+          	<p id="numbererror"></p>
+          </div>
+          <div class="input-box">
+            <span class="details">City</span>
+            <input type="text" id="city" name="city" placeholder="Enter your City">
+          	<p id="cityerror"></p>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
@@ -48,7 +54,10 @@
             <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password">
           	<p id="cpassworderror"></p>
           </div>
-          
+          <div class="input-box">
+            <span class="details">Image uploaded (Option)</span>
+            <input type="file" id="image" name="image">
+          </div>
         </div>
         <p id="error_para" ></p>
         <div id="err"></div>
@@ -58,15 +67,15 @@
       </form>
     </div>
   </div>
+  
 <script type="text/javascript">
   function validate()
 {
  var error="";
- var name = document.getElementById( "fname" );
- var name1 = document.getElementById( "lname" );
+ var name = document.getElementById( "username" );
  var email = document.getElementById( "email" );
- var name2 = document.getElementById( "name" );
-
+ var number = document.getElementById( "number" );
+ var city = document.getElementById( "city" );
  var password = document.getElementById( "password" );
  var cpassword = document.getElementById( "cpassword" );
 
@@ -76,23 +85,6 @@
   document.getElementById( "nameerror" ).innerHTML = error;
   return false;
  }
- 
- if( name1.value == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- }
- if( name2.value == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- }
- 
-
- 
- 
  if(name.value.length <= 2) 
 {
    error = " <font color='red'>!please not allow 2 and 20 chaecter</font> ";
@@ -101,39 +93,7 @@
   return false;
  
 }
-if(name1.value.length <= 2) 
-{
-   error = " <font color='red'>!please not allow 2 and 20 chaecter</font> ";
- 
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- 
-}
-if(name2.value.length <= 2) 
-{
-   error = " <font color='red'>!please not allow 2 and 20 chaecter</font> ";
- 
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- 
-}
 if(!isNaN(name.value)) 
-{
-   error = " <font color='red'>!please only charecter allowed</font> ";
- 
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- 
-}
-if(!isNaN(name1.value)) 
-{
-   error = " <font color='red'>!please only charecter allowed</font> ";
- 
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- 
-}
-if(!isNaN(name2.value)) 
 {
    error = " <font color='red'>!please only charecter allowed</font> ";
  
@@ -164,6 +124,40 @@ if(!isNaN(name2.value))
  {
   error = " <font color='red'>! ** . invaild position</font> ";
   document.getElementById( "emailerror" ).innerHTML = error;
+  return false;
+ }
+
+
+
+
+
+
+ else if( number.value == "")
+ {
+  error = " <font color='red'>!Requrie Name.</font> ";
+  document.getElementById( "numbererror" ).innerHTML = error;
+  return false;
+ }
+else if( number.value.length!=10)
+ {
+  error = " <font color='red'>! ** mobile number must 10 digit</font> ";
+  document.getElementById( "numbererror" ).innerHTML = error;
+  return false;
+ }
+
+else if(isNaN(number.value)){
+  error = " <font color='red'>! ** mobile number must be not allow charecter</font> ";
+  document.getElementById( "numbererror" ).innerHTML = error;
+  return false;
+}
+
+
+
+
+ else if( city.value == "" )
+ {
+  error = " <font color='red'>!Requrie Name.</font> ";
+  document.getElementById( "cityerror" ).innerHTML = error;
   return false;
  }
 
@@ -211,6 +205,7 @@ else if( cpassword.value != password.value)
   return true;
  }
 }
+
 </script>
 </body>
 </html>
